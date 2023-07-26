@@ -47,7 +47,7 @@ AIHub - [위해물품 엑스레이 이미지](https://aihub.or.kr/aihubdata/data
 - YOLOv4, Darknet
 
 ## 담당한 부분
-- Roboflow에서 데이터 라벨링 교정(파이썬 코드 이용)
+- 데이터 라벨링 교정(파이썬 코드 이용)
 - 데이터 전처리, Augmentation(증강) 진행
 - YOLOv4 모델 학습
 
