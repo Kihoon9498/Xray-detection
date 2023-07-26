@@ -1,74 +1,57 @@
-# Project Name : Xray_detection ( 수정중 )
-</br>
+# Project Name : Xray-detection
+페스티벌이나 콘서트에서 위험한 물품들을 탐지할 수 있게 엑스레이 이미지에서 칼, 가위 등 위험한 물품을 탐지해주는 프로젝트
 
 ## Contents Table
-- [문제 상황](#문제-상황)
-- [기대 효과](#기대효과)
-- [Project 설명](#PROJECT-설명)  
-- [모델 설명](#about-model)
-- [Dataset](#Dataset)
-- [Reference](#Reference) 
+- [프로젝트 상세 내용](#프로젝트-상세-내용)
+    - [문제 상황](#문제-상황)
+    - [기대효과](#기대효과)
+    - [PROJECT 설명](#PROJECT-설명)
+    - [활용 Dataset](#활용-Dataset)
+- [사용 기술 및 라이브러리](#사용-기술-및-라이브러리)
+- [담당한 부분](#담당한-부분) 
+- [개발 환경](#Environment)
+</br>
 
----
-## 문제 상황
+## 📖 프로젝트 상세 내용
+### 문제 상황
 
+- 코로나 시대의 거리두기와 마스크 해제로 인해 오프라인 페스티벌 및 콘서트가 많이 개최되고 있다.
 
+![](image-1.png)
 
-- 인공지능 학습 특징
-    - 인공지능 분야는 매 년, 매 분기 다양한 구조의 모델이 새롭게 발표된다.
-    - 인공지능 학습을 위해 전문화된 특정 교재나 미디어가 존재하지 않는다.
-    - 이로 인하여 학습을 위해서는 좋은 결과를 발표한 연구들의 논문으로 학습하는 것이 효율적이며 전문적인 학습이 가능하다!
+- 국내 최대 규모의 티켓 예매 서비스 플랫폼인 '인터파크 티켓'에서 2023.04.18 기준 약 300개의 콘서트 예매가 이루어지고 있으며, 점차 그 수가 늘어날 것으로 예상됨.
+- 축제를 진행할 때에는 금지물품을 반입할 수 없게 하나씩 가방 검사를 진행한다.
+- 이는 시간과 인력이 필요하며 효율적이지 못하다고 볼 수 있다. 또한, 몰래 눈속임으로 위험 물품을 반입하는 사건을 방지할 수 없다.
 
-- 인공지능 학습할 시 어려운 점 
-    - 발행되는 논문의 수는 그래프에서 참고할 수 있듯이, 급격하게 늘어나는 추세이다.
-    - 논문의 제목만을 바탕으로는 전체적인 내용을 파악하기 어렵다.
-    - 언어적 한계로 인해 영어로 작성된 논문을 빠르고 쉽게 이해할 수 없다.
+#### **엑스레이 이미지를 이용하여 위해 물품을 탐지하는 모델이 필요하다**
 
-## 기대효과 
+### 기대효과 
 
-- 대중교통( 지하철, 버스 등 )을 이용하여 출퇴근 할 때의 시간이나 남는 시간을 활용하여 논문 내용을 학습할 수 있다.
-- 인공지능 분야가 아닌 다른 논문을 학습할 때에도 효율적으로 학습할 수 있다.
-- TTS 모델을 학습시킨다면, 원하는 목소리로 내용을 들을 수 있다.
+- 페스티벌이나 콘서트에서 공항의 X-ray 물품검사를 진행하는 것처럼 검사를 자동화할 수 있다.
+- 물품을 검사하는데 드는 시간을 단축할 수 있고, 사람들이 안전하게 페스티벌을 즐길 수 있다.
+- 축제 뿐만이 아닌 보안을 위한 장소에서도 자동으로 위험한 물품을 탐지하여 사고를 방지할 수 있다.
 
-## PROJECT 설명 
+### PROJECT 설명 
+- YOLOv4 모델을 Darknet을 이용하여 학습시켰고, 엑스레이 이미지를 입력하면 학습시킬 때 선정한 12가지의 물품을 탐지하여 위치와 라벨이 결과로 도출되는 프로젝트
 
-![image](https://github.com/Kihoon9498/Paper-to-Speech-/assets/121469546/4a829a6b-df55-490e-8675-55e735fc9550)
+### 활용 Dataset
+![Alt text](image.png)
 
-논문의 정보를 쉽게 파악할 수 있도록 영어/한국어로 된 논문 내용을 한국어 음성 파일로 변환시켜 학습할 수 있게 해주는 프로젝트
+AIHub - [위해물품 엑스레이 이미지](https://aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=233)
 
-## ABOUT MODEL
+- 칼, 가위 등 실제 페스테벌에서 위해 물품으로 분류될 12가지의 물품 엑스레이 사진 약 12000장 사용
 
-### Summarization(Eng)
-- Hugging Face / [Facebook(Bart-large-cnn)](https://huggingface.co/facebook/bart-large-cnn)
+## 🛠️ 사용 기술 및 라이브러리
+- Roboflow
+- Numpy, Matplotlib
+- YOLOv4, Darknet
 
-BART model
-: 
+## 담당한 부분
+- Roboflow에서 데이터 라벨링 교정(파이썬 코드 이용)
+- 데이터 전처리, Augmentation(증강) 진행
+- YOLOv4 모델 학습
 
-### Summarization(Kor)
-- GitHub / [SKT-AI(KoBART)](https://github.com/SKT-AI/KoBART)
-
-KoBART model
-:
-
-### Translation(Eng to Kor)
-- Hugging Face / [facebook(nllb-200-distilled-600M)](https://huggingface.co/facebook/nllb-200-distilled-600M)
-
-
-
-### TTS (Text To Speech)
-- Hugging Face / [tensorspeech(tts-tacotron2-ljspeech-en)](https://huggingface.co/tensorspeech/tts-tacotron2-ljspeech-en)
-
-Tacotron2 model
-: 
-
-
-## Dataset
-AIHub - [논문자료 요약](https://aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=90)
-
-- 3만개의 원문 / Summary 데이터 이용
-
-
-## Enviroment
+## 🗃️ Environment
 
 | Env |CPU | GPU | RAM | OS 
 |:--:|:--:|:--:|:--:|:--:|
